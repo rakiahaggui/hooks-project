@@ -1,11 +1,11 @@
 import ReactStars from "react-stars";
+import {Link} from 'react-router-dom';
 const MovieCard = ({ el }) => {
   return (
     <div className="screen-2">
       <div className="top-image">
         <img src={el.image} alt="poster" />
       </div>
-
       <div className="main-heading">
         <h1 className="title">{el.name}</h1>
 
@@ -33,7 +33,6 @@ const MovieCard = ({ el }) => {
         <a href="#">Episodes</a>
         <a href="#">Reviews</a>
       </div>
-
       <p className="description">{el.description}</p>
       <div className="btn-play">
         <span>
@@ -41,6 +40,7 @@ const MovieCard = ({ el }) => {
           <ion-icon className="icon" name="play"></ion-icon>{" "}
         </span>
         Play
+        
       </div>
     </div>
   );

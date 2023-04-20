@@ -5,7 +5,8 @@ import MovieList from "./components/MovieList";
 import "./styles.css";
 import AddMovies from "./components/AddMovies";
 import SearchMovie from "./components/SearchMovie";
-
+import{Routes,Route} from' react- router-dom';
+import Description from "./components/Description";
 export default function App() {
   const [moviesList, setMoviesList] = useState(moviesDs);
   const [nameSearch, setNameSearch] = useState("");
@@ -27,6 +28,11 @@ export default function App() {
         ratingSearch={ratingSearch}
       />
       <AddMovies addNewMovie={addNewMovie} />
+      <Routes>
+      <Route path="/moviesDs/:id" element={`<Description>`}>  
+
+      </Route>
+    </Routes>
     </div>
   );
 }
