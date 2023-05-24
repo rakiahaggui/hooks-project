@@ -4,9 +4,10 @@ import { moviesDs } from "./components/MoviesDs";
 import MovieList from "./components/MovieList";
 import "./styles.css";
 import AddMovies from "./components/AddMovies";
-import SearchMovie from "./components/SearchMovie";
-import{Routes,Route} from' react- router-dom';
+import SearchMovie from "./components/SearchMovie";   
 import Description from "./components/Description";
+import { BrowserRouter as Router, Switch, Route,link } from 'react-router-dom';
+
 export default function App() {
   const [moviesList, setMoviesList] = useState(moviesDs);
   const [nameSearch, setNameSearch] = useState("");
@@ -16,6 +17,9 @@ export default function App() {
     setMoviesList([...moviesList, newMovie]);
   };
   return (
+    <Router>
+      
+      <link to="" exact path= "/">
     <div className="wrapper">
       <SearchMovie
         nameSearch={nameSearch}
@@ -26,13 +30,13 @@ export default function App() {
         moviesList={moviesList}
         nameSearch={nameSearch}
         ratingSearch={ratingSearch}
-      />
+      /> 
       <AddMovies addNewMovie={addNewMovie} />
-      <Routes>
-      <Route path="/moviesDs/:id" element={`<Description>`}>  
-
-      </Route>
-    </Routes>
+      </link>
+      <Switch>
+      <Route path="/movies/:id" component={Description} />
+    </Switch>
     </div>
+        </Router>
   );
 }
